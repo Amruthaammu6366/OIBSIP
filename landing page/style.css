@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background: #171c5867;
+  color: #f5ecec;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+header ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  background-image:"C:\Users\DELL\Downloads\back.jpg";
+  color: #131212;
+  padding: 8rem 2rem;
+  text-align: center;
+  background-color: rgb(116, 177, 233);
+  
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #0077aa;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.room, .amenities, .about, .testimonials {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: mediumaquamarine;
+  
+}
+
+.room {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.room img {
+  max-width: 600px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.room-info {
+  max-width: 400px;
+  text-align: left;
+}
+
+.room-info .rate {
+  font-weight: bold;
+}
+
+.amenities ul {
+  list-style: none;
+  padding: 0;
+}
+
+.amenities ul li {
+  margin: 0.5rem 0;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+.cta-buttons {
+  text-align: center;
+  padding: 2rem;
+}
+
+footer {
+  background: #004466;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a {
+  color: #fff;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
