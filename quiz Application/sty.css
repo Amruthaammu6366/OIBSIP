@@ -1,0 +1,116 @@
+/* Universal reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page layout */
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #f2f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 1em;
+}
+
+/* Header styling */
+header {
+  width: 100%;
+  font-family: 'Festive', cursive;
+  font-size: 1.5em;
+  background-color: #000C66;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 1em 0;
+}
+
+header h1 {
+  margin-bottom: 0.5em;
+}
+
+.timer {
+  font-size: 2em;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+/* Question blocks */
+.question {
+  width: 90%;
+  max-width: 600px;
+  background-color: #eceef9;
+  color: #050A30;
+  display: none; /* Hidden by default */
+  padding: 1em 1.5em;
+  font-size: 1.2em;
+  border-radius: 0.5em;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 2em;
+}
+
+.Q1 {
+  display: flex; /* Show first question */
+}
+
+/* Question heading */
+h6 {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+}
+
+/* Explanation & validation text */
+.question p {
+  display: none; /* Hide by default */
+  margin-top: 0.5em;
+  font-size: 0.95em;
+}
+
+/* Footer with buttons */
+footer {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+}
+
+footer button {
+  color: #FFFFFF;
+  background-color: #050A30;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  margin: 0.5em;
+  padding: 0.6em 1.2em;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+footer button:hover {
+  background-color: #FFFFFF;
+  color: #050A30;
+  border: 1px solid #050A30;
+}
+
+footer .next {
+  display: none; /* Hidden until needed */
+}
+
+/* Final stats box */
+.stats {
+  display: none; /* Hidden until quiz ends */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #050A30;
+  background-color: #e3e3e3;
+  font-size: 1.5em;
+  padding: 1.5em 2em;
+  border-radius: 0.5em;
+  margin-top: 2em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
