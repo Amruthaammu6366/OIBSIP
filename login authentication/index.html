@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register & Login System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      margin: 50px auto;
+    }
+    h2 {
+      text-align: center;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, button {
+      margin: 10px 0;
+      padding: 8px;
+      font-size: 1em;
+      color: rgb(15, 15, 15);
+    }
+    #secured-page {
+      display: none;
+      text-align: center;
+    }
+    .link {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="form-title">Register</h2>
+  <form id="auth-form">
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit" id="submit-btn">Register</button>
+  </form>
+  <p id="toggle-text">
+    Already have an account? <span class="link" id="toggle-link">Login here</span>
+  </p>
+
+  <div id="secured-page">
+    <h2>🔒 Secured Page</h2>
+    <p id="welcome-message"></p>
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <script>
+    const formTitle = document.getElementById('form-title');
+    const authForm = document.getElementById('auth-form');
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const submitBtn = document.getElementById('submit-btn');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleLink = document.getElementById('toggle-link');
+    const securedPage = document.getElementById('secured-page');
+    const welcomeMessage = document.getElementById('welcome-message');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    let isLoginMode = false;
+
+    function setFormMode() {
+      if (isLoginMode) {
+        formTitle.textContent = 'Login';
+        submitBtn.textContent = 'Login';
+        toggleText.innerHTML = `Don't have an account? <span class="link" id="toggle-link">Register here</span>`;
+      } else {
+        formTitle.textContent = 'Register';
+        submitBtn.textContent = 'Register';
+        toggleText.innerHTML = `Already have an account? <span class="link" id="toggle-link">Login here</span>`;
+      }
+      document.getElementById('toggle-link').addEventListener('click', toggleFormMode);
+    }
+
+    function toggleFormMode() {
+      isLoginMode = !isLoginMode;
+      setFormMode();
+    }
+
+    toggleLink.addEventListener('click', toggleFormMode);
+
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!username || !password) {
+        alert('Please fill in both fields.');
+        return;
+      }
+
+      if (isLoginMode) {
+        const storedPassword = localStorage.getItem(username);
+        if (!storedPassword) {
+          alert('User does not exist.');
+          return;
+        }
+        if (storedPassword === password) {
+          showSecuredPage(username);
+        } else {
+          alert('Incorrect password.');
+        }
+      } else {
+        if (localStorage.getItem(username)) {
+          alert('Username already exists. Please login.');
+        } else {
+          localStorage.setItem(username, password);
+          alert('Registration successful! Please login.');
+          toggleFormMode();
+        }
+      }
+    });
+
+    function showSecuredPage(username) {
+      authForm.style.display = 'none';
+      toggleText.style.display = 'none';
+      securedPage.style.display = 'block';
+      welcomeMessage.textContent = `Welcome, ${username}!`;
+    }
+
+    logoutBtn.addEventListener('click', () => {
+      authForm.style.display = 'flex';
+      toggleText.style.display = 'block';
+      securedPage.style.display = 'none';
+      usernameInput.value = '';
+      passwordInput.value = '';
+    });
+
+    // Initialize
+    setFormMode();
+  </script>
+</body>
+</html>
